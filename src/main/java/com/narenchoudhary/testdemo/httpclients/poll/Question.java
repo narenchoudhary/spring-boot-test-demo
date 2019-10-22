@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Question {
 	
-	private String question;
+	private String text;
 	
 	private Date publicationDate;
 	
@@ -17,16 +17,16 @@ public class Question {
 	
 	public Question(String question, Date publicationDate) {
 		super();
-		this.question = question;
+		this.text = question;
 		this.publicationDate = publicationDate;
 	}
 	
-	public String getQuestion() {
-		return question;
+	public String getText() {
+		return text;
 	}
 
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setText(String question) {
+		this.text = question;
 	}
 
 	public Date getPublicationDate() {
@@ -40,8 +40,8 @@ public class Question {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("question: ");
-		sb.append(question);
+		sb.append("text: ");
+		sb.append(text);
 		sb.append("; publicationDate: ");
 		sb.append(publicationDate);
 		return sb.toString();
