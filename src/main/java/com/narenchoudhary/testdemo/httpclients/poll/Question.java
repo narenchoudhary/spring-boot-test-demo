@@ -1,4 +1,4 @@
-package com.narenchoudhary.testdemo.httpclients;
+package com.narenchoudhary.testdemo.httpclients.poll;
 
 import java.util.Date;
 
@@ -51,8 +51,4 @@ public class Question {
 		ObjectMapper mapper = new ObjectMapper();
 		return mapper.writeValueAsString(this);
 	}
-	
-	
-	
-	
 }

@@ -1,4 +1,4 @@
-package com.narenchoudhary.testdemo.httpclients;
+package com.narenchoudhary.testdemo.httpclients.poll;
 
 import static org.junit.Assert.fail;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
@@ -27,6 +27,8 @@ import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.narenchoudhary.testdemo.httpclients.poll.PollServiceClient;
+import com.narenchoudhary.testdemo.httpclients.poll.Question;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
