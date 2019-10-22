@@ -14,6 +14,34 @@ This repository covers examples of following test scenarios:
 What is wrong with mocking `RestTemplate` calls?
 
 
+### What to do with `@Async` methods?
+
+Execution of `@Async` annotated-methods is controlled by JVM scheduler. It is very much possible that **verification** step in tests for such method can run before the method actually executes. As a result, the test will fail.
+
+One heuristic is to put `Thread.sleep()` with a big time sleep time. This again can fail in some cases when there are too many tests, or when `Async` annotated method is taking too much time to complete.
+
+For example:
+
+	Thread.sleep(10000);
+	Mockito.verify(mockBean, times(1)).doSomething();
+
+One sure-fire way is to disable `Async` behavior in tests. This can be done by restricting loading `Executor` bean in context using `Profile` annotation.
+
+	@Configuration
+	@EnableAsync
+	@Profile("!test")
+	public class MyAsyncConfiguration() {
+		
+		@Bean("taskExecutor")
+     	public Executor getExecutor() {
+         		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+         		...
+         		...
+         		return executor;
+     	}
+	}
+
+	
 ### Why context caching can be a problem?
 
 To speed up execution of tests, Spring Boot will cache context across test-classes with same configuration.

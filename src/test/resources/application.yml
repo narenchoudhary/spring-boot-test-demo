@@ -4,4 +4,7 @@ spring:
     - test
 
 poll-service:
-  hostname: ""
+  hostname: "http://example.com"
+
+analytics-service:
+  hostname: "http://example.com"
