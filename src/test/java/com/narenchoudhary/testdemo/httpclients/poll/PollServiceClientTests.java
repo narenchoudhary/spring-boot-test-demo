@@ -79,10 +79,10 @@ public class PollServiceClientTests {
 		
 		// check if request to analytics-service is made 
 		mockServer.expect(ExpectedCount.once(), requestTo(createMetricUrl))
-		.andExpect(header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE))
-		.andExpect(method(HttpMethod.POST))
-		.andExpect(content().json(metricJson))
-		.andRespond(withSuccess());
+			.andExpect(header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE))
+			.andExpect(method(HttpMethod.POST))
+			.andExpect(content().json(metricJson))
+			.andRespond(withSuccess());
 		
 		pollServiceClient.createQuestion(que);
 		
@@ -112,10 +112,10 @@ public class PollServiceClientTests {
 		
 		// check if request to analytics-service is made 
 		mockServer.expect(ExpectedCount.once(), requestTo(createMetricUrl))
-		.andExpect(header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE))
-		.andExpect(method(HttpMethod.POST))
-		.andExpect(content().json(metricJson))
-		.andRespond(withSuccess());
+			.andExpect(header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE))
+			.andExpect(method(HttpMethod.POST))
+			.andExpect(content().json(metricJson))
+			.andRespond(withSuccess());
 		
 		pollServiceClient.createQuestion(que);
 		
